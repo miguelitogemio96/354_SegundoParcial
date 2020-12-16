@@ -1,5 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+Created on Sun Dec 13 19:13:35 2020
+
+@author: migue
+"""
 
 import array
 import random
@@ -26,7 +29,6 @@ distance_map = lista
 
 IND_SIZE = 4
 
-
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='i', fitness=creator.FitnessMin)
 
@@ -51,7 +53,7 @@ toolbox.register("evaluate", evalTSP)
 def main():
     random.seed(169)
 
-    pop = toolbox.population(n=100)
+    pop = toolbox.population(n=50)
 
     hof = tools.HallOfFame(1)
     stats = tools.Statistics(lambda ind: ind.fitness.values)
@@ -60,7 +62,7 @@ def main():
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
     
-    algorithms.eaSimple(pop, toolbox, 0.7, 0.2, 100, stats=stats, 
+    algorithms.eaSimple(pop, toolbox, 0.7, 0.2, 50, stats=stats, 
                         halloffame=hof)
     
     return pop, stats, hof

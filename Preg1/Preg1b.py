@@ -391,7 +391,9 @@ def prueba(genetico):
     #print("Y el conjunto de estados iniciales es: ")
     for (ind, (aptitud, individuo)) in enumerate(genetico.población):
         assert isinstance(individuo, list)
-        #print('{}: {} con {} de aptitud'.format(ind, individuo, aptitud))
+        j = ObtenerDistanciaTotal(individuo)
+        #print('{}: {} con {} de costo'.format(ind, individuo, j))
+        #print(ObtenerDistanciaTotal(individuo))
 
     parejas = genetico.selección()
     # print("Un ejemplo de parejitas sería:")
@@ -433,6 +435,6 @@ def prueba(genetico):
 if __name__ == "__main__":
 
     # Un objeto genético con permutaciones con una población de
-    # 10 individuos y una probabilidad de mutacion de 0.1
+    # 20 individuos y una probabilidad de mutacion de 0.1
     genetico = GeneticoPermutaciones(Distancia(4), 20, 0.1)
     prueba(genetico)

@@ -1,8 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+Created on Sun Dec 13 19:13:35 2020
 
-
-#%config IPCompleter.greedy=True
+@author: migue
+"""
 import random
 
 
@@ -85,11 +85,13 @@ while(cont <= 3):
     print("")
     print(x)
     x.sort()
+    #print(x)
     x.reverse()
     print(x)
     for i in range(10):
         binX.append(conversion(x[i]))
     for i in range(10):
+        #La funcion x*3+x**2+x
         func.append(x[i]*x[i]*x[i] + x[i]*x[i] + x[i])
     print("la poblacion es: \n")
     print(func)
